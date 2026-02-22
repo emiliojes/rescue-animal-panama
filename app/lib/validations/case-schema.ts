@@ -28,7 +28,7 @@ export const caseFormSchema = z.object({
   contact_method: z.enum([CONTACT_METHODS.PHONE, CONTACT_METHODS.EMAIL, CONTACT_METHODS.WHATSAPP])
     .optional(),
   is_anonymous: z.boolean().optional().default(false),
-  consent_given: z.literal(true).refine(val => val === true, {
+  consent_given: z.boolean().refine(val => val === true, {
     message: 'Debes dar tu consentimiento para continuar',
   }),
 })
