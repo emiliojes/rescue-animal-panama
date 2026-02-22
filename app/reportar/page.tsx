@@ -28,7 +28,7 @@ export default function ReportarPage() {
     formState: { errors },
   } = useForm<CaseFormInput>({
     mode: 'onChange',
-    resolver: zodResolver(caseFormSchema),
+    resolver: zodResolver(caseFormSchema) as any,
     defaultValues: {
       is_anonymous: false,
       consent_given: false,
@@ -138,7 +138,7 @@ export default function ReportarPage() {
       <Header />
 
       <div className="max-w-3xl mx-auto px-4 py-12">
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit as any)}>
           <div className="bg-card-bg p-8 rounded-xl border border-border shadow-sm">
             {currentStep === 1 && (
               <FormStep
